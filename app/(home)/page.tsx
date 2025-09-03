@@ -2,10 +2,14 @@ export const metadata = {
   title: "Home",
 };
 
-export default function Page() {
-  return (
-    <div>
-      <h1>Hello!</h1>
-    </div>
-  );
+const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+
+async function getMovies() {
+  await new Promise((resolve) => setTimeout(resolve, 5000)); // 임의로 로딩 시간 추가
+  return fetch(URL).then((response) => response.json());
+}
+
+export default async function HomePage() {
+  const movies = await getMovies();
+  return <div>{JSON.stringify(movies)}</div>;
 }
