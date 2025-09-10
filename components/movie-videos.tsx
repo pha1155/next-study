@@ -13,6 +13,7 @@ export default async function MovieVideos({ id }: { id: string }) {
 
   return (
     <div className={styles.container}>
+      <h2 className={styles.title}>Movie Videos</h2>
       {videos.map((video) => (
         <iframe
           key={video.id}
