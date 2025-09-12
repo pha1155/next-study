@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import MovieInfo, { getMovie } from "../../../../components/movie-info";
+import MovieProviders from "../../../../components/movie-providers";
 import MovieVideos from "../../../../components/movie-videos";
 import MovieSimilar from "../../../../components/movie-similar";
 
@@ -31,6 +32,9 @@ export default async function MovieDetailPage({
     <div>
       <Suspense fallback={<h1>Loading movie info</h1>}>
         <MovieInfo id={id} />
+      </Suspense>
+      <Suspense fallback={<h1>Loading movie providers</h1>}>
+        <MovieProviders id={id} />
       </Suspense>
       <Suspense fallback={<h1>Loading movie videos</h1>}>
         <MovieVideos id={id} />
